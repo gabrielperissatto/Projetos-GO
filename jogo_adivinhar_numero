@@ -1,0 +1,34 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+)
+
+func main() {
+	fmt.Println("JOGO DE ADIVINHAR O NÚMERO")
+	fmt.Println("Estou pensando em um número de 0 a 100, tente adivinhar qual é")
+
+	NUMERO_SECRETO := Gera_numero()
+
+	for {
+		var meu_numero int
+		fmt.Scanln(&meu_numero)
+
+		if meu_numero < NUMERO_SECRETO {
+			fmt.Println("O valor é mais Alto")
+		} else if meu_numero > NUMERO_SECRETO {
+			fmt.Println("O valor é mais baixo")
+		} else {
+
+			fmt.Println("VOCE ACERTOU O NUMERO >>>>> ", NUMERO_SECRETO)
+			break
+		}
+	}
+
+}
+
+func Gera_numero() int {
+	N := rand.Intn(101)
+	return N
+}
